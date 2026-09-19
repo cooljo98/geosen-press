@@ -1,0 +1,7 @@
+{
+  "programs": [
+    {"title": "🤖 Primary School (8-12)", "subtitle": "Junior Innovators", "details": ["Scratch Visual Coding", "LEGO Spike Essential", "Basic Electronics"], "outcome": "Build & code first robot"},
+    {"title": "⚙️ Secondary School (13-18)", "subtitle": "Future Engineers", "details": ["Arduino & Sensors", "Python for Robotics", "3D Design & Printing"], "outcome": "Portfolio + Competition Ready"},
+    {"title": "🏫 Schools & Clubs", "subtitle": "We Come To You", "details": ["After-School Robotics Club", "Teacher Training", "Holiday Bootcamp"], "outcome": "Get Quote"}
+  ]
+}

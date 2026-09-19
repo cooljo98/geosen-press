@@ -1,0 +1,91 @@
+# ===== BACKEND - Where content is saved (GitHub) =====
+backend:
+  name: git-gateway # Uses Netlify Identity to save to GitHub
+  branch: main # Main branch name
+
+# ===== MEDIA - Where client uploaded images go =====
+media_folder: "images/uploads" # Folder in repo where images saved
+public_folder: "/images/uploads" # Path used in website to show images
+
+# ===== COLLECTIONS - What client can edit =====
+collections:
+  # --- HOME PAGE EDITOR ---
+    - name: "home"
+    label: "🏠 Home Page"
+    files:
+            - file: "content/home.json"
+        label: "Home Content - Edit homepage text & images"
+        fields:
+                    - {label: "Top Small Tag (e.g. STEM • ROBOTICS)", name: "tag", widget: "string"}
+                    - {label: "Main Heading Line 1", name: "heading1", widget: "string", hint: "First line, blue color"}
+                    - {label: "Main Heading Line 2 (Green Color)", name: "heading2", widget: "string", hint: "Second line, green color"}
+                    - {label: "Description under heading", name: "description", widget: "text"}
+                    - {label: "Hero Image (Big image on home)", name: "hero_image", widget: "image"}
+                    - label: "Why Choose Us Boxes (3 boxes)"
+            name: "features"
+            widget: "list"
+            fields:
+                            - {label: "Box Title (with emoji)", name: "title", widget: "string"}
+                            - {label: "Box Description", name: "desc", widget: "text"}
+
+  # --- ABOUT PAGE EDITOR ---
+    - name: "about"
+    label: "📖 About Page"
+    files:
+            - file: "content/about.json"
+        label: "About Us Content"
+        fields:
+                    - {label: "Main Heading", name: "heading", widget: "string"}
+                    - {label: "Main Paragraph", name: "paragraph", widget: "text"}
+                    - {label: "Our Mission", name: "mission", widget: "text"}
+                    - {label: "Our Vision", name: "vision", widget: "text"}
+                    - label: "Bullet Points - What makes us different"
+            name: "points"
+            widget: "list"
+            field: {label: "Point", name: "point", widget: "string"}
+
+  # --- PROGRAMS EDITOR ---
+    - name: "programs"
+    label: "🤖 Programs Page"
+    files:
+            - file: "content/programs.json"
+        label: "All Programs - Client can add new program cards"
+        fields:
+                    - label: "Programs List"
+            name: "programs"
+            widget: "list"
+            fields:
+                            - {label: "Program Title", name: "title", widget: "string"}
+                            - {label: "Subtitle", name: "subtitle", widget: "string"}
+                            - {label: "Program Details (list)", name: "details", widget: "list", field: {label: "Detail", name: "detail", widget: "string"}}
+                            - {label: "Outcome Text", name: "outcome", widget: "string"}
+
+  # --- GALLERY EDITOR ---
+    - name: "gallery"
+    label: "🖼️ Gallery"
+    files:
+            - file: "content/gallery.json"
+        label: "Gallery Photos - Add workshop photos"
+        fields:
+                    - label: "Gallery Images"
+            name: "images"
+            widget: "list"
+            fields:
+                            - {label: "Photo Title", name: "title", widget: "string"}
+                            - {label: "Upload Photo", name: "image", widget: "image"}
+
+  # --- SETTINGS - Contact & Socials (Used everywhere) ---
+    - name: "settings"
+    label: "⚙️ Settings & Contact"
+    files:
+            - file: "content/settings.json"
+        label: "Contact Info & Social Links"
+        fields:
+                    - {label: "Email Address", name: "email", widget: "string"}
+                    - {label: "Phone Number", name: "phone", widget: "string"}
+                    - {label: "Physical Address", name: "address", widget: "string"}
+                    - {label: "WhatsApp Link (https://wa.me/263...)", name: "whatsapp_link", widget: "string"}
+                    - {label: "Facebook Page Link", name: "facebook", widget: "string"}
+                    - {label: "Instagram Link", name: "instagram", widget: "string"}
+                    - {label: "LinkedIn Link", name: "linkedin", widget: "string"}
+                    - {label: "X / Twitter Link", name: "twitter", widget: "string"}

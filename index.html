@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geosen Press International | Robotics Education Zimbabwe</title>
+
+<!-- ===== GOOGLE FONTS - Poppins for clean look ===== -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- ===== FONT AWESOME - For social icons (Facebook, Insta etc) ===== -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- ===== NETLIFY IDENTITY - This makes /admin login work ===== -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<style>
+/* ===== MAIN COLORS - Taken from Geosen logo (Blue + Green) ===== */
+:root{
+  --blue:#1e3a8a; /* Primary blue from logo */
+  --green:#2d4a32; /* Dark green from logo */
+  --teal:#1a8a7a; /* Accent teal for tags */
+  --light:#f8fafc; /* Light gray background */
+}
+
+/* Reset all margins */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:white;color:#222;line-height:1.6}
+
+/* ===== HEADER / NAVBAR - Logo + Menu ===== */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 5%;
+  background:white;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  position:sticky; /* Stays on top when scrolling */
+  top:0;
+  z-index:100;
+  flex-wrap:wrap;
+}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--green);font-size:20px}
+.logo img{height:52px} /* Logo size */
+nav a{margin:0 10px;text-decoration:none;color:#333;font-weight:600;font-size:15px}
+nav a:hover{color:var(--blue)} /* Hover effect */
+
+/* ===== BUTTONS ===== */
+.btn{background:var(--blue);color:white!important;padding:11px 22px;border-radius:8px;text-decoration:none;font-weight:600;display:inline-block;border:none;cursor:pointer}
+.btn-green{background:var(--green)}
+.tag{display:inline-block;border:1px solid var(--teal);color:var(--teal);padding:6px 16px;border-radius:20px;font-size:11px;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase}
+
+/* ===== HERO SECTION - First big section on Home ===== */
+.hero{display:flex;flex-wrap:wrap;align-items:center;padding:60px 5%;background:var(--light);gap:40px}
+.hero-text{flex:1;min-width:300px}
+.hero-text h1{font-size:46px;color:var(--blue);line-height:1.15}
+.hero-text h1 span{color:var(--green)} /* Second line colored green */
+.hero-img{flex:1;min-width:300px}
+.hero-img img{width:100%;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,0.15);height:420px;object-fit:cover}
+
+section{padding:70px 5%}
+section h2{color:var(--blue);font-size:36px;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:30px}
+.card{background:white;border-radius:16px;padding:28px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-top:5px solid var(--blue)}
+.card.green{border-top-color:var(--green)}
+
+/* Page switching - Only one page shows at a time */
+.page{display:none}
+.page.active{display:block;animation:fadeIn .4s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+footer{background:#0f172a;color:#cbd5e1;padding:40px 5%;text-align:center}
+.social{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER START ================= -->
+<!-- This is top navbar with logo and menu links -->
+<header>
+  <div class="logo">
+    <img src="geosen_logo.png" alt="Geosen Press Logo">
+    <div>GEOSEN PRESS<br><small style="color:var(--blue);font-size:11px;letter-spacing:2px">INTERNATIONAL</small></div>
+  </div>
+  <nav>
+    <!-- showPage('home') switches to that page without reloading -->
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('about')">About</a>
+    <a href="#" onclick="showPage('programs')">Programs</a>
+    <a href="#" onclick="showPage('gallery')">Gallery</a>
+    <a href="#" onclick="showPage('contact')" class="btn">Contact</a>
+  </nav>
+</header>
+<!-- ================= HEADER END ================= -->
+
+<!-- ================= HOME PAGE START ================= -->
+<!-- Client can edit all text here from Admin > Home Page -->
+<div id="home" class="page active">
+  <div class="hero">
+    <div class="hero-text">
+      <div id="homeTag" class="tag">Loading from CMS...</div>
+      <h1 id="homeHeading">We Teach Kids to <span>Build The Future</span></h1>
+      <p id="homeDesc" style="margin:20px 0;color:#555;font-size:18px">Content loads from content/home.json</p>
+      <a href="#" onclick="showPage('programs')" class="btn">Explore Programs →</a>
+      <!-- WhatsApp button - Link comes from settings.json -->
+      <a id="homeWhatsapp" href="#" target="_blank" class="btn" style="margin-left:10px;background:#25D366"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="hero-img"><img id="homeHeroImg" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800" alt="Robotics Students"></div>
+  </div>
+  <!-- Why Choose Us - Filled by CMS features list -->
+  <section><h2>Why Schools Choose Us</h2><div id="featuresGrid" class="grid"></div></section>
+</div>
+<!-- ================= HOME PAGE END ================= -->
+
+<!-- ================= ABOUT PAGE START ================= -->
+<!-- Client edits from Admin > About Page -->
+<div id="about" class="page">
+  <section>
+    <div class="tag">ABOUT US</div>
+    <h2 id="aboutHeading">Loading...</h2>
+    <p id="aboutParagraph" style="max-width:800px;margin:20px 0;color:#555;font-size:18px"></p>
+    <div class="grid">
+      <div class="card"><h3>Our Mission</h3><p id="aboutMission"></p></div>
+      <div class="card green"><h3>Our Vision</h3><p id="aboutVision"></p></div>
+    </div>
+    <h3 style="margin-top:40px;color:var(--blue)">What Makes Us Different</h3>
+    <ul id="aboutPoints" style="margin:15px 20px;color:#555;line-height:2.2"></ul>
+  </section>
+</div>
+
+<!-- ================= PROGRAMS PAGE START ================= -->
+<!-- Client adds/removes programs from Admin > Programs Page -->
+<div id="programs" class="page">
+  <section style="background:var(--light)"><div class="tag">OUR PROGRAMS</div><h2>Programs for Every Age</h2><div id="programsGrid" class="grid"></div></section>
+</div>
+
+<!-- ================= GALLERY PAGE START ================= -->
+<!-- Client uploads photos from Admin > Gallery - Auto shows here -->
+<div id="gallery" class="page">
+  <section><div class="tag">OUR WORK IN ACTION</div><h2>Our Students at Work</h2><p style="color:#666">Client adds photos from /admin, they appear here live.</p><div id="galleryGrid" class="grid"></div></section>
+</div>
+
+<!-- ================= CONTACT PAGE START ================= -->
+<!-- Contact details come from Admin > Settings -->
+<div id="contact" class="page">
+  <section style="max-width:1000px;margin:auto">
+    <div class="tag">GET IN TOUCH</div><h2>Bring Robotics to Your School</h2>
+    <div class="grid" style="margin-top:30px">
+      <div>
+        <p style="line-height:2.5">
+          <strong>📍 Address:</strong> <span id="contactAddress">Harare, Zimbabwe</span><br>
+          <<!-- ===== EMAIL BUTTON - Clickable mailto link, updates from CMS ===== -->
+<strong>📧 Email:</strong> 
+<a id="contactEmail" href="mailto:info@geosenpress.com" class="btn" style="padding:6px 14px;font-size:14px;margin-left:8px;background:var(--blue)">
+  <i class="fas fa-envelope"></i> info@geosenpress.com
+</a><br>
+          <strong>📱 Phone:</strong> <span id="contactPhone">+263 XX</span>
+        </p>
+        <a id="contactWhatsappBtn" href="#" target="_blank" class="btn" style="background:#25D366;margin-top:15px">Chat on WhatsApp</a>
+      </div>
+      <div class="card"><h3>Quick Contact</h3><p>Email us at <span id="contactEmail2"></span> or use WhatsApp.</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= FOOTER START ================= -->
+<!-- Social links also editable from Settings -->
+<footer>
+  <p>© 2026 Geosen Press International | <span id="footerEmail">info@geosenpress.com</span></p>
+  <div style="display:flex;justify-content:center;gap:12px;margin:20px 0">
+    <a id="socialFb" href="#" target="_blank" class="social" style="background:#1877F2"><i class="fab fa-facebook-f"></i></a>
+    <a id="socialIg" href="#" target="_blank" class="social" style="background:#E4405F"><i class="fab fa-instagram"></i></a>
+    <a id="socialLi" href="#" target="_blank" class="social" style="background:#0A66C2"><i class="fab fa-linkedin-in"></i></a>
+    <a id="socialX" href="#" target="_blank" class="social" style="background:black"><i class="fab fa-x-twitter"></i></a>
+  </div>
+  <p style="font-size:12px"><a href="/admin/" style="color:#94a3b8">Admin Login - Client Only</a></p>
+</footer>
+
+<script>
+// ===== FUNCTION: Switch Pages (Home, About etc) =====
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active')); // Hide all pages
+  document.getElementById(id).classList.add('active'); // Show selected page
+  window.scrollTo(0,0); // Scroll to top
+}
+
+// ===== FUNCTION: Load Content from CMS JSON files =====
+// This reads /content/*.json files created by Admin panel
+async function loadCMS(){
+  try{
+    // Try to fetch all 5 JSON files - if not yet published, it will fail silently and use defaults
+    const home = await fetch('/content/home.json').then(r=>r.json()).catch(()=>null);
+    const about = await fetch('/content/about.json').then(r=>r.json()).catch(()=>null);
+    const programs = await fetch('/content/programs.json').then(r=>r.json()).catch(()=>null);
+    const gallery = await fetch('/content/gallery.json').then(r=>r.json()).catch(()=>null);
+    const settings = await fetch('/content/settings.json').then(r=>r.json()).catch(()=>null);
+
+    // --- Fill HOME ---
+    if(home){
+      document.getElementById('homeTag').innerText = home.tag;
+      document.getElementById('homeHeading').innerHTML = home.heading1 + ' <span>'+home.heading2+'</span>';
+      document.getElementById('homeDesc').innerText = home.description;
+      document.getElementById('homeHeroImg').src = home.hero_image;
+      let fg=document.getElementById('featuresGrid'); fg.innerHTML='';
+      home.features.forEach(f=>{fg.innerHTML+=`<div class="card"><h3>${f.title}</h3><p>${f.desc}</p></div>`});
+    }
+    // --- Fill ABOUT ---
+    if(about){
+      document.getElementById('aboutHeading').innerText = about.heading;
+      document.getElementById('aboutParagraph').innerText = about.paragraph;
+      document.getElementById('aboutMission').innerText = about.mission;
+      document.getElementById('aboutVision').innerText = about.vision;
+      let ul=document.getElementById('aboutPoints'); ul.innerHTML='';
+      about.points.forEach(p=>{ul.innerHTML+=`<li>${p.point}</li>`});
+    }
+    // --- Fill PROGRAMS ---
+    if(programs){
+      let pg=document.getElementById('programsGrid'); pg.innerHTML='';
+      programs.programs.forEach(pr=>{
+        let details = pr.details.map(d=>`<li>${d}</li>`).join('');
+        pg.innerHTML+=`<div class="card"><h3>${pr.title}</h3><p><b>${pr.subtitle}</b></p><ul style="margin:10px 20px">${details}</ul><p style="margin-top:10px"><b>Outcome:</b> ${pr.outcome}</p></div>`;
+      });
+    }
+    // --- Fill GALLERY ---
+    if(gallery){
+      let gg=document.getElementById('galleryGrid'); gg.innerHTML='';
+      if(!gallery.images || gallery.images.length==0){gg.innerHTML='<p style="color:#888">No photos yet. Add from Admin panel.</p>';}
+      else{gallery.images.forEach(img=>{gg.innerHTML+=`<div class="card" style="padding:0;overflow:hidden"><img src="${img.image}" style="width:100%;height:220px;object-fit:cover"><div style="padding:15px"><h3>${img.title}</h3></div></div>`});}
+    }
+    // --- Fill SETTINGS (Contact + Socials everywhere) ---
+    if(settings){
+      document.getElementById('contactAddress').innerText = settings.address;
+      document.getElementById('contactEmail').innerText = settings.email;
+      document.getElementById('contactEmail2').innerText = settings.email;
+      document.getElementById('contactPhone').innerText = settings.phone;
+      document.getElementById('footerEmail').innerText = settings.email;
+      document.getElementById('contactWhatsappBtn').href = settings.whatsapp_link;
+      document.getElementById('homeWhatsapp').href = settings.whatsapp_link;
+      document.getElementById('socialFb').href = settings.facebook;
+      document.getElementById('socialIg').href = settings.instagram;
+      document.getElementById('socialLi').href = settings.linkedin;
+      document.getElementById('socialX').href = settings.twitter;
+    }
+  }catch(err){console.log('CMS not published yet - showing defaults');}
+}
+loadCMS(); // Run when page loads
+</script>
+</body>
+</html>
