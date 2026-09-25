@@ -1,7 +1,59 @@
 {
   "programs": [
-    {"title": "🤖 Primary School (8-12)", "subtitle": "Junior Innovators", "details": ["Scratch Visual Coding", "LEGO Spike Essential", "Basic Electronics"], "outcome": "Build & code first robot"},
-    {"title": "⚙️ Secondary School (13-18)", "subtitle": "Future Engineers", "details": ["Arduino & Sensors", "Python for Robotics", "3D Design & Printing"], "outcome": "Portfolio + Competition Ready"},
-    {"title": "🏫 Schools & Clubs", "subtitle": "We Come To You", "details": ["After-School Robotics Club", "Teacher Training", "Holiday Bootcamp"], "outcome": "Get Quote"}
+    {
+      "title": "📐 AutoCAD Design Training",
+      "subtitle": "Design & Plan",
+      "details": [
+        "2D and 3D design skills",
+        "Mechanical and engineering drawings",
+        "Real-world project modelling",
+        "Detailed drawings and technical documentation"
+      ],
+      "outcome": "Turn concepts into accurate technical designs"
+    },
+    {
+      "title": "🤖 Robotics Workshops",
+      "subtitle": "Build & Bring to Life",
+      "details": [
+        "Assemble and integrate hardware components",
+        "Sensors and actuators",
+        "Problem solving and teamwork",
+        "Test, troubleshoot and improve performance"
+      ],
+      "outcome": "Build and control intelligent machines"
+    },
+    {
+      "title": "💻 Coding Bootcamps",
+      "subtitle": "Think & Control",
+      "details": [
+        "Python and C++ programming",
+        "Embedded systems and practical coding",
+        "Interface with sensors and motors",
+        "Automation and AI basics"
+      ],
+      "outcome": "Write programs that control real-world systems"
+    },
+    {
+      "title": "🏗️ Project-Based Learning",
+      "subtitle": "Learn Through Real Problems",
+      "details": [
+        "Combine design, hardware and software",
+        "Work on practical technology projects",
+        "Apply teamwork and problem-solving skills",
+        "Connect learning to Zimbabwean industries and needs"
+      ],
+      "outcome": "Create practical solutions from concept to prototype"
+    },
+    {
+      "title": "🏫 Schools & Clubs",
+      "subtitle": "We Bring the Programme to You",
+      "details": [
+        "After-school robotics clubs",
+        "Teacher and facilitator training",
+        "Holiday technology bootcamps",
+        "Hands-on workshops for schools and learning centres"
+      ],
+      "outcome": "Build a sustainable technology learning programme at your school"
+    }
   ]
 }

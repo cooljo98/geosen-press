@@ -1,12 +1,26 @@
 {
-  "tag": "STEM • ROBOTICS • HANDS-ON LEARNING",
-  "heading1": "We Teach Kids to",
-  "heading2": "Build The Future",
-  "description": "Geosen Press International brings hands-on robotics, coding & STEM to primary & secondary schools across Zimbabwe and Africa.",
+  "tag": "AUTOCAD • ROBOTICS • CODING • HANDS-ON LEARNING",
+  "heading1": "Design. Build. Program.",
+  "heading2": "Create Real-World Solutions",
+  "description": "Geosen Press International, in association with Thunderminds Association, provides hands-on technology education that integrates AutoCAD, Robotics and Coding for a smarter, more innovative Zimbabwe.",
   "hero_image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800",
   "features": [
-    {"title": "🧠 Learn by Doing", "desc": "Students build, code, and test real robots every lesson."},
-    {"title": "👩‍🏫 Certified Trainers", "desc": "Experienced STEM educators who make robotics fun and simple."},
-    {"title": "🏆 Competitions", "desc": "We prepare learners for FLL, WRO, and national robotics challenges."}
+    {"title": "📐 AutoCAD Design & Plan", "desc": "Develop 2D and 3D design skills, mechanical and engineering drawings, and real-world project models."},
+    {"title": "🤖 Robotics Build & Bring to Life", "desc": "Assemble and integrate hardware, sensors and actuators while developing automated systems and solving practical problems."},
+    {"title": "💻 Coding Think & Control", "desc": "Learn Python, C++ and embedded programming to interface with sensors and motors and build automation and AI-enabled solutions."}
+  ],
+  "connection": "DESIGN + BUILD + PROGRAM = REAL-WORLD SOLUTIONS",
+  "connection_description": "AutoCAD provides the design, Robotics brings the design to life, and Coding provides the intelligence and control.",
+  "education_programs": [
+    {"title": "AutoCAD Design Training", "description": "From concept to detailed engineering drawings."},
+    {"title": "Robotics Workshops", "description": "Build, program and control intelligent machines."},
+    {"title": "Coding Bootcamps", "description": "Python, C++ and embedded systems for real applications."},
+    {"title": "Project-Based Learning", "description": "Practical projects relevant to Zimbabwe's industries and needs."}
+  ],
+  "impact_points": [
+    "Build a skilled digital generation",
+    "Drive local innovation",
+    "Support education and industry",
+    "Grow a sustainable technology ecosystem"
   ]
 }

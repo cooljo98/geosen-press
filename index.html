@@ -63,6 +63,13 @@ section h2{color:var(--blue);font-size:36px;margin-bottom:10px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:30px}
 .card{background:white;border-radius:16px;padding:28px;box-shadow:0 5px 20px rgba(0,0,0,0.06);border-top:5px solid var(--blue)}
 .card.green{border-top-color:var(--green)}
+.info-strip{background:#073b73;color:white;border-radius:16px;padding:24px 30px;margin-top:35px;text-align:center}
+.info-strip strong{color:#facc15}
+.program-highlight{background:linear-gradient(135deg,#f8fafc,#eef6ff);border-radius:18px;padding:28px;border:1px solid #dbeafe}
+.program-highlight h3{color:var(--blue);margin-bottom:8px}
+.impact{background:#f8fafc}
+.impact-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:25px}
+.impact-item{background:white;border-left:5px solid #facc15;padding:18px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,.06);font-weight:600;color:#123b6d}
 
 /* Page switching - Only one page shows at a time */
 .page{display:none}
@@ -80,8 +87,9 @@ footer{background:#0f172a;color:#cbd5e1;padding:40px 5%;text-align:center}
 <header>
   <div class="logo">
     <img src="geosen_logo.png" alt="Geosen Press Logo">
-    <div>GEOSEN PRESS<br><small style="color:var(--blue);font-size:11px;letter-spacing:2px">INTERNATIONAL</small></div>
+    <div>GEOSEN PRESS<br><small style="color:var(--blue);font-size:11px;letter-spacing:2px">ROBOTICS | CODING | AUTOCAD</small></div>
   </div>
+  <div style="color:var(--blue);font-weight:700;text-align:center;font-size:13px">THUNDERMINDS ASSOCIATION<br><small style="font-style:italic;font-weight:500">Learn • Innovate • Lead</small></div>
   <nav>
     <!-- showPage('home') switches to that page without reloading -->
     <a href="#" onclick="showPage('home')">Home</a>
@@ -107,8 +115,21 @@ footer{background:#0f172a;color:#cbd5e1;padding:40px 5%;text-align:center}
     </div>
     <div class="hero-img"><img id="homeHeroImg" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800" alt="Robotics Students"></div>
   </div>
-  <!-- Why Choose Us - Filled by CMS features list -->
-  <section><h2>Why Schools Choose Us</h2><div id="featuresGrid" class="grid"></div></section>
+  <!-- Integrated learning model -->
+  <section>
+    <div class="tag">THE CONNECTION</div>
+    <h2>From Design to Intelligent Solutions</h2>
+    <p style="max-width:850px;color:#555;font-size:18px">Our approach connects technical design, physical construction and software control so learners understand how ideas become working systems.</p>
+    <div id="featuresGrid" class="grid"></div>
+    <div class="info-strip">💡 <strong id="connectionText">DESIGN + BUILD + PROGRAM = REAL-WORLD SOLUTIONS</strong><br><span id="connectionDescription"></span></div>
+  </section>
+
+  <section class="impact">
+    <div class="tag">OUR PROGRAMME</div>
+    <h2>Practical Skills for a Stronger Zimbabwe</h2>
+    <div id="educationPrograms" class="grid"></div>
+    <div class="impact-list" id="impactList"></div>
+  </section>
 </div>
 <!-- ================= HOME PAGE END ================= -->
 
@@ -122,6 +143,7 @@ footer{background:#0f172a;color:#cbd5e1;padding:40px 5%;text-align:center}
     <div class="grid">
       <div class="card"><h3>Our Mission</h3><p id="aboutMission"></p></div>
       <div class="card green"><h3>Our Vision</h3><p id="aboutVision"></p></div>
+      <div class="card"><h3>Thunderminds Association</h3><p id="aboutAssociation"></p><p id="aboutTagline" style="margin-top:10px;font-weight:600;color:var(--blue)"></p></div>
     </div>
     <h3 style="margin-top:40px;color:var(--blue)">What Makes Us Different</h3>
     <ul id="aboutPoints" style="margin:15px 20px;color:#555;line-height:2.2"></ul>
@@ -149,7 +171,7 @@ footer{background:#0f172a;color:#cbd5e1;padding:40px 5%;text-align:center}
       <div>
         <p style="line-height:2.5">
           <strong>📍 Address:</strong> <span id="contactAddress">Harare, Zimbabwe</span><br>
-          <<!-- ===== EMAIL BUTTON - Clickable mailto link, updates from CMS ===== -->
+          <!-- ===== EMAIL BUTTON - Clickable mailto link, updates from CMS ===== -->
 <strong>📧 Email:</strong> 
 <a id="contactEmail" href="mailto:info@geosenpress.com" class="btn" style="padding:6px 14px;font-size:14px;margin-left:8px;background:var(--blue)">
   <i class="fas fa-envelope"></i> info@geosenpress.com
@@ -203,6 +225,12 @@ async function loadCMS(){
       document.getElementById('homeHeroImg').src = home.hero_image;
       let fg=document.getElementById('featuresGrid'); fg.innerHTML='';
       home.features.forEach(f=>{fg.innerHTML+=`<div class="card"><h3>${f.title}</h3><p>${f.desc}</p></div>`});
+      document.getElementById('connectionText').innerText = home.connection || '';
+      document.getElementById('connectionDescription').innerText = home.connection_description || '';
+      let ep=document.getElementById('educationPrograms'); ep.innerHTML='';
+      (home.education_programs || []).forEach(item=>{ep.innerHTML+=`<div class="program-highlight"><h3>${item.title}</h3><p>${item.description}</p></div>`});
+      let il=document.getElementById('impactList'); il.innerHTML='';
+      (home.impact_points || []).forEach(point=>{il.innerHTML+=`<div class="impact-item">✓ ${point}</div>`});
     }
     // --- Fill ABOUT ---
     if(about){
@@ -210,6 +238,8 @@ async function loadCMS(){
       document.getElementById('aboutParagraph').innerText = about.paragraph;
       document.getElementById('aboutMission').innerText = about.mission;
       document.getElementById('aboutVision').innerText = about.vision;
+      document.getElementById('aboutAssociation').innerText = about.association || '';
+      document.getElementById('aboutTagline').innerText = about.tagline || '';
       let ul=document.getElementById('aboutPoints'); ul.innerHTML='';
       about.points.forEach(p=>{ul.innerHTML+=`<li>${p.point}</li>`});
     }
